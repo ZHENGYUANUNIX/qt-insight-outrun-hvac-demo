@@ -13,7 +13,9 @@
     - Qt::Quick
     - Qt::Quick3D
     - Qt::QuickStudioEffects
-      - [android/qqdc_Android-6.5.2-arm64v8a/qqdc_Android-6.5.2-arm64v8a_Debug](android/qqdc_Android-6.5.2-arm64v8a/qqdc_Android-6.5.2-arm64v8a_Debug)の中のフォルダすべてを、Qt/6.5.3/android_arm64_v8a直下にペーストして下さい。そうすることでQt::QuickStudioEffectsを使用可能になります。
+      - Androidを使用する場合は、[prebuilt_designer_components/Debug/qqdc_Android-6.5.2-arm64v8a_Debug](prebuilt_designer_components/Debug/qqdc_Android-6.5.2-arm64v8a_Debug)の中のフォルダすべてを、Qt/6.5.3/android_arm64_v8a直下にペーストして下さい。そうすることでQt::QuickStudioEffectsを使用可能になります。
+      - 同様に、MinGWを使用する場合は、[prebuilt_designer_components/Debug/qqdc_MinGW-6.5.3_Debug](prebuilt_designer_components/Debug/qqdc_MinGW-6.5.3_Debug)の中のフォルダすべてを、Qt/6.5.3/mingw_64直下にペーストして下さい。そうすることでQt::QuickStudioEffectsを使用可能になります。
+      - MSVCを使用する場合も同様に、[prebuilt_designer_components/Debug/qqdc_MSVC2019-6.5.3_Debug](prebuilt_designer_components/Debug/qqdc_MSVC2019-6.5.3_Debug)の中のフォルダすべてを、Qt/6.5.3/msvc2019_64直下にペーストして下さい。そうすることでQt::QuickStudioEffectsを使用可能になります。
     - Qt::InsightTracker
   
   ## 使用方法
@@ -29,3 +31,6 @@
   ![log](readme_assets/log.png)
   7. 少しすると、Qt Insight Web Consoleに送信されたデータが反映されます。
   ![web console](readme_assets/webconsole.png)
+
+  ## 連絡先
+  Qt Insightの商用利用ついて詳しい情報をお求めの場合は、Qt Japanオフィス(japan@qt.io)までご連絡ください。
