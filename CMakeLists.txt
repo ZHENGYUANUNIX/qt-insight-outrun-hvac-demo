@@ -21,7 +21,6 @@ find_package(Qt6 COMPONENTS Quick3D)
 find_package(Qt6 COMPONENTS Mqtt)
 find_package(Qt6 COMPONENTS InterfaceFramework)
 find_package(Qt6 COMPONENTS IfAndroidVehicleProperties)
-# studio componentのビルドとインストールが必要(https://doc.qt.io/qtdesignstudio/quick-converting-ui-projects.html#adding-qt-quick-designer-components-to-qt-installations)
 find_package(Qt6 COMPONENTS QuickStudioEffects)
 find_package(Qt6 COMPONENTS InsightTracker)
 

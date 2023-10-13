@@ -90,7 +90,7 @@ Rectangle {
         height: 60
         opacity: 0
         text: qsTr("Check Box")
-        onCheckStateChanged: checked ? (seatmode ? hvacMain.state = "座席デモモード" : hvacMain.state = "車内温度デモモード") : (seatmode ? hvacMain.state = "座席" : hvacMain.state = "車内温度")
+        onCheckStateChanged: checked ? (seatmode ? hvacMain.state = "Seats Demo Mode" : hvacMain.state = "Climate Demo Mode") : (seatmode ? hvacMain.state = "Seats" : hvacMain.state = "Climate")
     }
 
     Item {
@@ -98,11 +98,11 @@ Rectangle {
     }
     states: [
         State {
-            name: "車内温度"
+            name: "Climate"
             when: !seatmode
         },
         State {
-            name: "座席"
+            name: "Seats"
             when: seatmode
             PropertyChanges {
                 target: icon

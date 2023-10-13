@@ -166,14 +166,14 @@ Rectangle {
                         if (!slider.pressed) {
                             if (seatControls.driverSeat) {
                                 InsightTracker.sendClickEvent(
-                                            "スライダー操作による運転席座席ヒーター温度操作",
-                                            "運転席ヒーター操作", sliderHandle.x,
-                                            sliderHandle.y, "温度", slider.value)
+                                            "Control the Passenger Seat Heater with a Slider",
+                                            "Adjust AC on Driver Seat", sliderHandle.x,
+                                            sliderHandle.y, "Temperature", slider.value)
                             } else {
                                 InsightTracker.sendClickEvent(
-                                            "スライダー操作による運転席座席ヒーター温度操作",
-                                            "助手席ヒーター操作", sliderHandle.x,
-                                            sliderHandle.y, "温度", slider.value)
+                                            "Control the Passenger Seat Heater with a Slider",
+                                            "Adjust AC on Passenger Seat", sliderHandle.x,
+                                            sliderHandle.y, "Temperature", slider.value)
                             }
                         }
                     }
@@ -228,13 +228,13 @@ Rectangle {
                         closeTimer.restart()
                         if (seatControls.driverSeat) {
                             InsightTracker.sendClickEvent(
-                                        "ボタン操作による運転席座席ヒーター冷却", "運転席ヒーター操作",
-                                        sliderHandle.x, sliderHandle.y, "温度",
+                                        "Cool the Heater on the Driver Seat with a Button", "Adjust AC on Driver Seat",
+                                        sliderHandle.x, sliderHandle.y, "Temperature",
                                         slider.value)
                         } else {
                             InsightTracker.sendClickEvent(
-                                        "ボタン操作による助手席座席ヒーター冷却", "助手席ヒーター操作",
-                                        sliderHandle.x, sliderHandle.y, "温度",
+                                        "Cool the Heater on the Passenger Seat with a Button", "Adjust AC on Passenger Seat",
+                                        sliderHandle.x, sliderHandle.y, "Temperature",
                                         slider.value)
                         }
                     }
@@ -253,13 +253,13 @@ Rectangle {
                         closeTimer.restart()
                         if (seatControls.driverSeat) {
                             InsightTracker.sendClickEvent(
-                                        "ボタン操作による運転席座席ヒーター温め", "運転席ヒーター操作",
-                                        sliderHandle.x, sliderHandle.y, "温度",
+                                        "ボタン操作による運転席座席ヒーター温め", "Adjust AC on Driver Seat",
+                                        sliderHandle.x, sliderHandle.y, "Temperature",
                                         slider.value)
                         } else {
                             InsightTracker.sendClickEvent(
-                                        "ボタン操作による助手席座席ヒーター温め", "助手席ヒーター操作",
-                                        sliderHandle.x, sliderHandle.y, "温度",
+                                        "ボタン操作による助手席座席ヒーター温め", "Adjust AC on Passenger Seat",
+                                        sliderHandle.x, sliderHandle.y, "Temperature",
                                         slider.value)
                         }
                     }
@@ -401,19 +401,19 @@ Rectangle {
             function onCheckedChanged() {
                 if (seatControls.driverSeat) {
                     if (heaterOnDrivercheckBox.checked) {
-                        InsightTracker.sendClickEvent("運転席座席ヒーターON",
-                                                      "運転席ヒーター操作", heaterOnDrivercheckBox.x, heaterOnDrivercheckBox.y)
+                        InsightTracker.sendClickEvent("Turn on the Driver Seat Heater",
+                                                      "Adjust AC on Driver Seat", heaterOnDrivercheckBox.x, heaterOnDrivercheckBox.y)
                     } else {
-                        InsightTracker.sendClickEvent("運転席座席ヒーターOFF",
-                                                      "運転席ヒーター操作", heaterOnDrivercheckBox.x, heaterOnDrivercheckBox.y)
+                        InsightTracker.sendClickEvent("Turn off the Driver Seat Heater",
+                                                      "Adjust AC on Driver Seat", heaterOnDrivercheckBox.x, heaterOnDrivercheckBox.y)
                     }
                 } else {
                     if (heaterOnDrivercheckBox.checked) {
-                        InsightTracker.sendClickEvent("助手席座席ヒーターON",
-                                                      "助手席ヒーター操作", heaterOnDrivercheckBox.x, heaterOnDrivercheckBox.y)
+                        InsightTracker.sendClickEvent("Turn on the Passenger Seat Heater",
+                                                      "Adjust AC on Passenger Seat", heaterOnDrivercheckBox.x, heaterOnDrivercheckBox.y)
                     } else {
-                        InsightTracker.sendClickEvent("助手席座席ヒーターOFF",
-                                                      "助手席ヒーター操作", heaterOnDrivercheckBox.x, heaterOnDrivercheckBox.y)
+                        InsightTracker.sendClickEvent("Turn off the Passenger Seat Heater",
+                                                      "Adjust AC on Passenger Seat", heaterOnDrivercheckBox.x, heaterOnDrivercheckBox.y)
                     }
                 }
             }

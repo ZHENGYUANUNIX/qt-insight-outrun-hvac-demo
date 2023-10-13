@@ -185,7 +185,7 @@ Item {
             for (let i = 0; i < root.soundPoints.length; ++i) {
                 if(root.dragPoint === root.soundPoints[i]) {
                     var soundPointNum = i + 1
-                    InsightTracker.sendClickEvent("サウンドポイント" + soundPointNum + "を移動", root.hvacMainState, mouse.x, mouse.y )
+                    InsightTracker.sendClickEvent("Sound Point" + soundPointNum + "was Moved", root.hvacMainState, mouse.x, mouse.y )
                 }
             }
 

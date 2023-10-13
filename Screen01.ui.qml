@@ -436,13 +436,13 @@ Rectangle {
 
         Connections {
             function onPressedChanged() {
-                // 値変化中に大量のイベントを送るのではなく、値確定後に１度だけ送る
+                // Send an event only once when the value is determined
                 if (particlesUpdown.pressed) {
                     var originalValue = particlesUpdown.value
                 }
                 if (!particlesUpdown.pressed
                         && originalValue != particlesUpdown.value) {
-                    InsightTracker.sendClickEvent("助手席上半身エアコン角度変更",
+                    InsightTracker.sendClickEvent("Change the angle of AC on Passenger Seat(Upper)",
                                                   hvacmain.state,
                                                   particlesUpdown.handle.x,
                                                   particlesUpdown.handle.y,
@@ -483,12 +483,12 @@ Rectangle {
         Connections {
             function onStateChanged() {
                 if (particle_check_control.state == "State1") {
-                    InsightTracker.sendClickEvent("助手席上半身エアコンOFF",
+                    InsightTracker.sendClickEvent("Turn off AC on Passenger Seat(Upper)",
                                                   hvacmain.state,
                                                   particle_check_control.x,
                                                   particle_check_control.y)
                 } else if (particle_check_control.state == "State2") {
-                    InsightTracker.sendClickEvent("助手席上半身エアコンON",
+                    InsightTracker.sendClickEvent("Turn on the AC of Passenger Seat(Upper)",
                                                   hvacmain.state,
                                                   particle_check_control.x,
                                                   particle_check_control.y)
@@ -526,12 +526,12 @@ Rectangle {
         Connections {
             function onStateChanged() {
                 if (particle_check_control1.state == "State1") {
-                    InsightTracker.sendClickEvent("助手席足元エアコンOFF",
+                    InsightTracker.sendClickEvent("Turn off the AC off Passenger Seat(Lower)",
                                                   hvacmain.state,
                                                   particle_check_control1.x,
                                                   particle_check_control1.y)
                 } else if (particle_check_control1.state == "State2") {
-                    InsightTracker.sendClickEvent("助手席足元エアコンON",
+                    InsightTracker.sendClickEvent("Turn off the AC on Passenger Seat(Lower)",
                                                   hvacmain.state,
                                                   particle_check_control1.x,
                                                   particle_check_control1.y)
@@ -557,12 +557,12 @@ Rectangle {
         Connections {
             function onStateChanged() {
                 if (particle_check_control2.state == "State1") {
-                    InsightTracker.sendClickEvent("運転席上半身エアコンOFF",
+                    InsightTracker.sendClickEvent("Turn off the AC of Driver Seat(Upper)",
                                                   hvacmain.state,
                                                   particle_check_control2.x,
                                                   particle_check_control2.y)
                 } else if (particle_check_control2.state == "State2") {
-                    InsightTracker.sendClickEvent("運転席上半身エアコンON",
+                    InsightTracker.sendClickEvent("Turn on the AC of Driver Seat(Upper)",
                                                   hvacmain.state,
                                                   particle_check_control2.x,
                                                   particle_check_control2.y)
@@ -587,12 +587,12 @@ Rectangle {
         Connections {
             function onStateChanged() {
                 if (particle_check_control3.state == "State1") {
-                    InsightTracker.sendClickEvent("運転席足元エアコンOFF",
+                    InsightTracker.sendClickEvent("Turn off the AC of Driver Seat(Lower)",
                                                   hvacmain.state,
                                                   particle_check_control3.x,
                                                   particle_check_control3.y)
                 } else if (particle_check_control3.state == "State2") {
-                    InsightTracker.sendClickEvent("運転席足元エアコンON",
+                    InsightTracker.sendClickEvent("Turn on the AC of Driver Seat(Lower)",
                                                   hvacmain.state,
                                                   particle_check_control3.x,
                                                   particle_check_control3.y)
@@ -612,12 +612,12 @@ Rectangle {
         Connections {
             function onStateChanged() {
                 if (particle_center_control.state == "State1") {
-                    InsightTracker.sendClickEvent("運転席中央エアコンOFF",
+                    InsightTracker.sendClickEvent("Turn off the AC of Driver Seat(Center)",
                                                   hvacmain.state,
                                                   particle_center_control.x,
                                                   particle_center_control.y)
                 } else if (particle_center_control.state == "State2") {
-                    InsightTracker.sendClickEvent("運転席中央エアコンON",
+                    InsightTracker.sendClickEvent("Turn on the AC of Driver Seat(Center)",
                                                   hvacmain.state,
                                                   particle_center_control.x,
                                                   particle_center_control.y)
@@ -654,12 +654,12 @@ Rectangle {
         Connections {
             function onStateChanged() {
                 if (particle_center_control1.state == "State1") {
-                    InsightTracker.sendClickEvent("助手席中央エアコンOFF",
+                    InsightTracker.sendClickEvent("Turn off the AC of Passenger Seat(Center)",
                                                   hvacmain.state,
                                                   particle_center_control1.x,
                                                   particle_center_control1.y)
                 } else if (particle_center_control1.state == "State2") {
-                    InsightTracker.sendClickEvent("助手席中央エアコンON",
+                    InsightTracker.sendClickEvent("Turn off the AC of Passenger Seat(Center)",
                                                   hvacmain.state,
                                                   particle_center_control1.x,
                                                   particle_center_control1.y)
@@ -725,9 +725,9 @@ Rectangle {
         endAngle: 90
         Connections {
             function onAngleChanged() {
-                InsightTracker.sendClickEvent("運転席リクライニング変更", hvacmain.state,
+                InsightTracker.sendClickEvent("Change the Recline of Driver Seat", hvacmain.state,
                                               reclineSliderDriver.x,
-                                              reclineSliderDriver.y, "角度",
+                                              reclineSliderDriver.y, "Angle",
                                               reclineSliderDriver.angle)
             }
         }
@@ -753,11 +753,11 @@ Rectangle {
         endAngle: 90
         Connections {
             function onAngleChanged() {
-                // Mathの部分の演算で助手席のangleを運転席のangleと同じ見方に調整。90°が座席が直角。0°は座席が完全に寝ている。
+                // Adjust the angle of the passenger seat in the math section to match the angle of the driver's seat. 90° means the seat is at a right angle. 0° means the seat is fully reclined
                 InsightTracker.sendClickEvent(
-                            "助手席リクライニング変更", hvacmain.state,
+                            "Change the Recline of Passenger Seat", hvacmain.state,
                             reclineSliderPassenger.x, reclineSliderPassenger.y,
-                            "角度", Math.abs(reclineSliderPassenger.angle - 90))
+                            "Angle", Math.abs(reclineSliderPassenger.angle - 90))
             }
         }
     }
@@ -795,11 +795,11 @@ Rectangle {
                 enabled: false
                 Connections {
                     function onClicked(mouse) {
-                        if (hvacmain.state !== "運転席のリクライニング調整") {
-                            InsightTracker.sendClickEvent("運転席リクライニング設定開始",
+                        if (hvacmain.state !== "Recline Driver Seat") {
+                            InsightTracker.sendClickEvent("Start Recline Setting on Driver Seat",
                                                           hvacmain.state,
                                                           mouse.x, mouse.y)
-                            hvacmain.state = "運転席のリクライニング調整"
+                            hvacmain.state = "Recline Driver Seat"
                         }
                     }
                 }
@@ -809,7 +809,7 @@ Rectangle {
                 id: mouseArea1
                 anchors.fill: parent
                 enabled: false
-                onClicked: hvacmain.state = "運転席のリクライニング調整"
+                onClicked: hvacmain.state = "Recline Driver Seat"
             }
         }
 
@@ -827,11 +827,11 @@ Rectangle {
                 enabled: false
                 Connections {
                     function onClicked(mouse) {
-                        if (hvacmain.state !== "助手席のリクライニング調整") {
-                            InsightTracker.sendClickEvent("助手席リクライニング設定開始",
+                        if (hvacmain.state !== "Recline Passenger Seat") {
+                            InsightTracker.sendClickEvent("Start Recline Setting on Passenger Seat",
                                                           hvacmain.state,
                                                           mouse.x, mouse.y)
-                            hvacmain.state = "助手席のリクライニング調整"
+                            hvacmain.state = "Recline Passenger Seat"
                         }
                     }
                 }
@@ -852,7 +852,7 @@ Rectangle {
                 id: mouseArea5
                 anchors.fill: parent
                 enabled: false
-                onClicked: hvacmain.state = "助手席のリクライニング調整"
+                onClicked: hvacmain.state = "Recline Passenger Seat"
             }
         }
 
@@ -892,12 +892,12 @@ Rectangle {
                 Connections {
                     function onCheckStateChanged() {
                         if (checkBox.checked) {
-                            InsightTracker.sendClickEvent("運転席ヒーターON",
+                            InsightTracker.sendClickEvent("Turn on Heater on Driver Seat",
                                                           hvacmain.state,
                                                           checkBox.x,
                                                           checkBox.y)
                         } else {
-                            InsightTracker.sendClickEvent("運転席ヒーターOFF",
+                            InsightTracker.sendClickEvent("Turn off Heater on Driver Seat",
                                                           hvacmain.state,
                                                           checkBox.x,
                                                           checkBox.y)
@@ -956,12 +956,12 @@ Rectangle {
                 Connections {
                     function onCheckStateChanged() {
                         if (checkBox1.checked) {
-                            InsightTracker.sendClickEvent("助手席ヒーターON",
+                            InsightTracker.sendClickEvent("Turn on Heater on Passenger Seat",
                                                           hvacmain.state,
                                                           checkBox1.x,
                                                           checkBox1.y)
                         } else {
-                            InsightTracker.sendClickEvent("助手席ヒーターOFF",
+                            InsightTracker.sendClickEvent("Turn off Heater on Passenger Seat",
                                                           hvacmain.state,
                                                           checkBox1.x,
                                                           checkBox1.y)
@@ -1032,10 +1032,10 @@ Rectangle {
             height: 60
             Connections {
                 function onPressed() {
-                    InsightTracker.sendClickEvent("リクライニング設定から戻る",
+                    InsightTracker.sendClickEvent("Return from Recline Setting",
                                                   hvacmain.state, backbutton.x,
                                                   backbutton.y)
-                    hvacmain.state = "座席"
+                    hvacmain.state = "Seats"
                 }
             }
 
@@ -1120,13 +1120,13 @@ Rectangle {
         from: -100
         Connections {
             function onPressedChanged() {
-                // 値変化中に大量のイベントを送るのではなく、値確定後に１度だけ送る
+                // Send an event only once when the value is determined
                 if (particlesUpdown1.pressed) {
                     var originalValue = particlesUpdown1.value
                 }
                 if (!particlesUpdown1.pressed
                         && originalValue != particlesUpdown1.value) {
-                    InsightTracker.sendClickEvent("助手席足元エアコン角度変更",
+                    InsightTracker.sendClickEvent("Change the Angle of AC on Passenger Seat(Lower)",
                                                   hvacmain.state,
                                                   particlesUpdown1.handle.x,
                                                   particlesUpdown1.handle.y,
@@ -1152,13 +1152,13 @@ Rectangle {
         from: 90
         Connections {
             function onPressedChanged() {
-                // 値変化中に大量のイベントを送るのではなく、値確定後に１度だけ送る
+                // Send an event only once when the value is determined
                 if (particlesUpdown2.pressed) {
                     var originalValue = particlesUpdown2.value
                 }
                 if (!particlesUpdown2.pressed
                         && originalValue != particlesUpdown2.value) {
-                    InsightTracker.sendClickEvent("助手席中央エアコン角度変更",
+                    InsightTracker.sendClickEvent("Change the Angle of AC on Passenger Seat(Center)",
                                                   hvacmain.state,
                                                   particlesUpdown2.handle.x,
                                                   particlesUpdown2.handle.y,
@@ -1184,13 +1184,13 @@ Rectangle {
         from: -90
         Connections {
             function onPressedChanged() {
-                // 値変化中に大量のイベントを送るのではなく、値確定後に１度だけ送る
+                // Send an event only once when the value is determined
                 if (particlesUpdown3.pressed) {
                     var originalValue = particlesUpdown3.value
                 }
                 if (!particlesUpdown3.pressed
                         && originalValue != particlesUpdown3.value) {
-                    InsightTracker.sendClickEvent("運転席中央エアコン角度変更",
+                    InsightTracker.sendClickEvent("Change the Angle of AC on Driver Seat(Center)",
                                                   hvacmain.state,
                                                   particlesUpdown3.handle.x,
                                                   particlesUpdown3.handle.y,
@@ -1217,13 +1217,13 @@ Rectangle {
 
         Connections {
             function onPressedChanged() {
-                // 値変化中に大量のイベントを送るのではなく、値確定後に１度だけ送る
+                // Send an event only once when the value is determined
                 if (particlesUpdown4.pressed) {
                     var originalValue = particlesUpdown4.value
                 }
                 if (!particlesUpdown4.pressed
                         && originalValue != particlesUpdown4.value) {
-                    InsightTracker.sendClickEvent("運転席上半身エアコン角度変更",
+                    InsightTracker.sendClickEvent("Change the Angle of AC on Driver Seat(Upper)",
                                                   hvacmain.state,
                                                   particlesUpdown4.handle.x,
                                                   particlesUpdown4.handle.y,
@@ -1249,13 +1249,13 @@ Rectangle {
         from: 65
         Connections {
             function onPressedChanged() {
-                // 値変化中に大量のイベントを送るのではなく、値確定後に１度だけ送る
+                // Send an event only once when the value is determined
                 if (particlesUpdown5.pressed) {
                     var originalValue = particlesUpdown5.value
                 }
                 if (!particlesUpdown5.pressed
                         && originalValue != particlesUpdown5.value) {
-                    InsightTracker.sendClickEvent("運転席足元エアコン角度変更",
+                    InsightTracker.sendClickEvent("Change the Angle of AC on Driver Seat(Lower)",
                                                   hvacmain.state,
                                                   particlesUpdown5.handle.x,
                                                   particlesUpdown5.handle.y,
@@ -1296,7 +1296,7 @@ Rectangle {
         onCheckedChanged: globalDaymode = checked
         Connections {
             function onCheckedChanged() {
-                InsightTracker.sendClickEvent("Day Nightモード切替", hvacmain.state,
+                InsightTracker.sendClickEvent("Swith Day/Night Mode", hvacmain.state,
                                               nightAndDayCheckBox.x,
                                               nightAndDayCheckBox.y,
                                               "globalDaymode", globalDaymode)
@@ -1364,7 +1364,7 @@ Rectangle {
 
     states: [
         State {
-            name: "車内温度"
+            name: "Climate"
 
             PropertyChanges {
                 target: sceneEnvironment
@@ -1447,7 +1447,7 @@ Rectangle {
             }
         },
         State {
-            name: "座席"
+            name: "Seats"
 
             PropertyChanges {
                 target: seat_HVAC
@@ -1749,7 +1749,7 @@ Rectangle {
             }
         },
         State {
-            name: "音響"
+            name: "Audio"
 
             PropertyChanges {
                 target: seat_HVAC2
@@ -1961,7 +1961,7 @@ Rectangle {
             }
         },
         State {
-            name: "運転席のリクライニング調整"
+            name: "Recline Driver Seat"
 
             PropertyChanges {
                 target: seat_HVAC
@@ -2285,7 +2285,7 @@ Rectangle {
             }
         },
         State {
-            name: "助手席のリクライニング調整"
+            name: "Recline Passenger Seat"
 
             PropertyChanges {
                 target: seat_HVAC
@@ -2612,7 +2612,7 @@ Rectangle {
             }
         },
         State {
-            name: "車内温度デモモード"
+            name: "Climate Demo Mode"
             PropertyChanges {
                 target: sceneEnvironment
                 probeHorizon: 0
@@ -2836,7 +2836,7 @@ Rectangle {
             }
         },
         State {
-            name: "座席デモモード"
+            name: "Seats Demo Mode"
             PropertyChanges {
                 target: seat_HVAC
                 x: -192.005

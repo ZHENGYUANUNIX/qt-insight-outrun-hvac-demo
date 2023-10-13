@@ -46,7 +46,7 @@ Rectangle {
     width: 527
     height: 60
     radius: 30
-    state: "車内温度"
+    state: "Climate"
     color: isDay ? "#b2ffffff" : "#b2000000"
 
     property bool isDay: true
@@ -96,7 +96,7 @@ Rectangle {
     Text {
         id: climate
         x: 79
-        text: qsTr("車内温度")
+        text: qsTr("Climate")
         anchors.verticalCenter: parent.verticalCenter
         font.pixelSize: 20
         font.family: "Open Sans"
@@ -107,7 +107,7 @@ Rectangle {
     Text {
         id: seats
         x: 274
-        text: qsTr("座席")
+        text: qsTr("Seats")
         anchors.verticalCenter: parent.verticalCenter
         font.pixelSize: 20
         font.family: "Open Sans"
@@ -118,7 +118,7 @@ Rectangle {
     Text {
         id: audio
         x: 440
-        text: qsTr("音響")
+        text: qsTr("Audio")
         anchors.verticalCenter: parent.verticalCenter
         font.pixelSize: 20
         font.family: "Open Sans"
@@ -133,16 +133,16 @@ Rectangle {
         Connections {
             function onClicked() {
                 if (mouseArea.mouseX < 188) {
-                    InsightTracker.sendClickEvent("Climateモード選択", root.state, mouseArea.mouseX, mouseArea.mouseY)
-                    // Climateページに戻ってくるまでを1セッションとする
+                    InsightTracker.sendClickEvent("Select Climate Mode", root.state, mouseArea.mouseX, mouseArea.mouseY)
+                    // Reset the session on returning to climate mode
                     InsightTracker.startNewSession()
-                    root.state = "車内温度"
+                    root.state = "Climate"
                 } else if (mouseArea.mouseX < 339) {
-                    InsightTracker.sendClickEvent("Seatsモード選択", root.state, mouseArea.mouseX, mouseArea.mouseY)
-                    root.state = "座席"
+                    InsightTracker.sendClickEvent("Select Seat Mode", root.state, mouseArea.mouseX, mouseArea.mouseY)
+                    root.state = "Seats"
                 } else {
-                    InsightTracker.sendClickEvent("Audioモード選択", root.state, mouseArea.mouseX, mouseArea.mouseY)
-                    root.state = "音響"
+                    InsightTracker.sendClickEvent("Select Audio Mode", root.state, mouseArea.mouseX, mouseArea.mouseY)
+                    root.state = "Audio"
                 }
             }
         }
@@ -153,7 +153,7 @@ Rectangle {
     }
     states: [
         State {
-            name: "車内温度"
+            name: "Climate"
 
             PropertyChanges {
                 target: iconClimate
@@ -166,7 +166,7 @@ Rectangle {
             }
         },
         State {
-            name: "座席"
+            name: "Seats"
 
             PropertyChanges {
                 target: knob
@@ -187,7 +187,7 @@ Rectangle {
             }
         },
         State {
-            name: "音響"
+            name: "Audio"
 
             PropertyChanges {
                 target: knob

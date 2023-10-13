@@ -154,10 +154,10 @@ Rectangle {
                 function onCheckStateChanged() {
                     onCheckStateChanged: DData.acOn = acOncheckbox.checked
                     if (acOncheckbox.checked) {
-                        InsightTracker.sendClickEvent("エアコンON",
+                        InsightTracker.sendClickEvent("Turn on AC",
                                                       hvacMainState, acOncheckbox.x, acOncheckbox.y)
                     } else {
-                        InsightTracker.sendClickEvent("エアコンOFF",
+                        InsightTracker.sendClickEvent("Turn off AC",
                                                       hvacMainState, acOncheckbox.x, acOncheckbox.y)
                     }
                 }
@@ -179,10 +179,10 @@ Rectangle {
                 function onCheckStateChanged() {
                     onCheckStateChanged: DData.autoOn = acAutocheckbox.checked
                     if (acAutocheckbox.checked) {
-                        InsightTracker.sendClickEvent("エアコン AutoモードON",
+                        InsightTracker.sendClickEvent("Turn on AC Auto Mode",
                                                       hvacMainState, acAutocheckbox.x, acAutocheckbox.y)
                     } else {
-                        InsightTracker.sendClickEvent("エアコン AutoモードOFF",
+                        InsightTracker.sendClickEvent("Turn off AC Auto Mode",
                                                       hvacMainState, acAutocheckbox.x, acAutocheckbox.y)
                     }
                 }
@@ -203,7 +203,7 @@ Rectangle {
 
             Connections {
                 function onCheckStateChanged() {
-                    InsightTracker.sendClickEvent("エアコン SyncモードON",
+                    InsightTracker.sendClickEvent("Turn off AC Sync Mode",
                                                   hvacMainState, acSynccheckbox.x, acSynccheckbox.y)
                 }
             }
@@ -331,10 +331,10 @@ Rectangle {
                 function onCheckedChanged() {
                     DData.defrostRear = rearwindowDefrostcheckbox.checked
                     if (rearwindowDefrostcheckbox.checked) {
-                        InsightTracker.sendClickEvent("デフォッガーON",
+                        InsightTracker.sendClickEvent("Turn on Defogger",
                                                       hvacMainState, rearwindowDefrostcheckbox.x, rearwindowDefrostcheckbox.y)
                     } else {
-                        InsightTracker.sendClickEvent("デフォッガーOFF",
+                        InsightTracker.sendClickEvent("Turn off Defogger",
                                                       hvacMainState, rearwindowDefrostcheckbox.x, rearwindowDefrostcheckbox.y)
                     }
                 }
@@ -354,10 +354,10 @@ Rectangle {
                 function onCheckedChanged() {
                     DData.defrostFront = windscreeDefrostcheckbox.checked
                     if (windscreeDefrostcheckbox.checked) {
-                        InsightTracker.sendClickEvent("デフロスターON",
+                        InsightTracker.sendClickEvent("Turn on Defroster",
                                                       hvacMainState, windscreeDefrostcheckbox.x, windscreeDefrostcheckbox.y)
                     } else {
-                        InsightTracker.sendClickEvent("デフロスターOFF",
+                        InsightTracker.sendClickEvent("Turn off Defroster",
                                                       hvacMainState, windscreeDefrostcheckbox.x, windscreeDefrostcheckbox.y)
                     }
                 }
@@ -377,10 +377,10 @@ Rectangle {
                 function onCheckedChanged() {
                     DData.recircOn = recirculationcheckbox.checked
                     if (recirculationcheckbox.checked) {
-                        InsightTracker.sendClickEvent("内気循環ON",
+                        InsightTracker.sendClickEvent("Turn on Ventilation",
                                                       hvacMainState, recirculationcheckbox.x, recirculationcheckbox.y)
                     } else {
-                        InsightTracker.sendClickEvent("内記循環OFF",
+                        InsightTracker.sendClickEvent("Turn off Ventilation",
                                                       hvacMainState, recirculationcheckbox.x, recirculationcheckbox.y)
                     }
                 }
@@ -406,7 +406,7 @@ Rectangle {
         Connections {
             function onStateChanged() {
                 if (seatControls.state == "open") {
-                    InsightTracker.sendScreenView("運転席ヒーター操作")
+                    InsightTracker.sendScreenView("Adjust AC on Driver Seat")
                 } else if (seatControls.state == "closed") {
                     InsightTracker.sendScreenView(controlBar.hvacMainState)
                 }
@@ -421,7 +421,7 @@ Rectangle {
         Connections {
             function onStateChanged() {
                 if (seatControls1.state == "open") {
-                    InsightTracker.sendScreenView("助手席ヒーター操作")
+                    InsightTracker.sendScreenView("Adjust AC on Passenger Seat")
                 } else if (seatControls1.state == "closed") {
                     InsightTracker.sendScreenView(controlBar.hvacMainState)
                 }
@@ -437,7 +437,7 @@ Rectangle {
         Connections {
             function onStateChanged() {
                 if (ventControls.state == "open") {
-                    InsightTracker.sendScreenView("空調操作")
+                    InsightTracker.sendScreenView("Control AC")
                 } else if (ventControls.state == "closed") {
                     InsightTracker.sendScreenView(controlBar.hvacMainState)
                 }

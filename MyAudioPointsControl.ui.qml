@@ -89,12 +89,12 @@ Rectangle {
                     function onCheckedChanged() {
                         if (customCheckbox.checked) {
                             InsightTracker.sendClickEvent(
-                                        "サウンドポイント1有効化",
+                                        "Enable Sound Point 1",
                                         audioPointsControl.hvacMainState,
                                         customCheckbox.x, customCheckbox.y)
                         } else {
                             InsightTracker.sendClickEvent(
-                                        "サウンドポイント1無効化",
+                                        "Disable Sound Point 1",
                                         audioPointsControl.hvacMainState,
                                         customCheckbox.x, customCheckbox.y)
                         }
@@ -110,12 +110,12 @@ Rectangle {
                     function onCheckedChanged() {
                         if (customCheckbox1.checked) {
                             InsightTracker.sendClickEvent(
-                                        "サウンドポイント2有効化",
+                                        "Enable Sound Point 2",
                                         audioPointsControl.hvacMainState,
                                         customCheckbox1.x, customCheckbox1.y)
                         } else {
                             InsightTracker.sendClickEvent(
-                                        "サウンドポイント2無効化",
+                                        "Disable Sound Point 2",
                                         audioPointsControl.hvacMainState,
                                         customCheckbox1.x, customCheckbox1.y)
                         }
@@ -131,12 +131,12 @@ Rectangle {
                     function onCheckedChanged() {
                         if (customCheckbox2.checked) {
                             InsightTracker.sendClickEvent(
-                                        "サウンドポイント3有効化",
+                                        "Enable Sound Point 3",
                                         audioPointsControl.hvacMainState,
                                         customCheckbox2.x, customCheckbox2.y)
                         } else {
                             InsightTracker.sendClickEvent(
-                                        "サウンドポイント3無効化",
+                                        "Disable Sound Point 3",
                                         audioPointsControl.hvacMainState,
                                         customCheckbox2.x, customCheckbox2.y)
                         }

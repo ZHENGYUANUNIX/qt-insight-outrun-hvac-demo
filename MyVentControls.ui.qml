@@ -96,7 +96,7 @@ Rectangle {
         Connections {
             function onPressedChanged() {
                 if (!ventSlider.pressed) {
-                    InsightTracker.sendClickEvent("空調強さ変更", "空調強さ変更",
+                    InsightTracker.sendClickEvent("Adjust AC", "Adjust AC",
                                                   ventSliderHandle.x,
                                                   ventSliderHandle.y, "空調強さ",
                                                   ventSlider.value)
